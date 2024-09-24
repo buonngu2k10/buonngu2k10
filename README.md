@@ -1,12 +1,54 @@
-- 👋 Hi, I’m @buonngu2k10
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
-
-<!---
-buonngu2k10/buonngu2k10 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+{
+    "description": {
+        "translate": "enchantment.enchantplus.life_steal",
+        "fallback": "Life Steal"
+    },
+    "exclusive_set": "#enchantplus:exclusive_set/sword_effect",
+    "supported_items": "#minecraft:enchantable/sword",
+    "primary_items": "#minecraft:enchantable/sword",
+    "weight": 1,
+    "max_level": 5,
+    "min_cost": {
+        "base": 5,
+        "per_level_above_first": 15
+    },
+    "max_cost": {
+        "base": 35,
+        "per_level_above_first": 12
+    },
+    "anvil_cost": 1,
+    "slots": [
+        "mainhand"
+    ],
+    "effects": {
+        "minecraft:post_attack": [
+            {
+                "enchanted": "attacker",
+                "affected": "attacker",
+                "effect": {
+                    "type": "minecraft:apply_mob_effect",
+                    "to_apply": "minecraft:instant_health",
+                    "min_duration": 0.1,
+                    "max_duration": {
+                        "type": "minecraft:linear",
+                        "base": 2.5,
+                        "per_level_above_first": 3.5
+                    },
+                    "min_amplifier": 1,
+                    "max_amplifier": 1
+                },
+                "requirements": {
+                    "condition": "minecraft:random_chance",
+                    "chance": {
+                        "type": "minecraft:enchantment_level",
+                        "amount": {
+                            "type": "minecraft:linear",
+                            "base": 0.15,
+                            "per_level_above_first": 0.15
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
